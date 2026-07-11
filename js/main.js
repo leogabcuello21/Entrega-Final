@@ -20,6 +20,9 @@ function agregarDestino(destino) {
     destinos.push(destino);
     guardarDestinosStorage(destinos);
     console.log('Destino guardado:', destino);
+    localStorage.setItem('destino_interesado', destino.nombre);
+    console.log('Destino guardado en localStorage para contacto:', destino.nombre);
+    window.location.href = "./paginas/contacto.html"; 
   }
 }
 
@@ -169,10 +172,12 @@ function iniciarAplicacion() {
     document.addEventListener('DOMContentLoaded', () => {
       inicializarBotonesDestinos();
       consultarCotizacionBRL(); 
+      cargarGaleriasAPI();
     });
   } else {
     inicializarBotonesDestinos();
     consultarCotizacionBRL();   
+    cargarGaleriasAPI();
     setInterval(consultarCotizacionBRL, 20000);
   }
 }

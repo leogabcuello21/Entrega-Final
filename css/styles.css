@@ -1,284 +1,350 @@
+/* ==========================================================================
+   ESTILOS GENERALES Y CONFIGURACIÓN
+   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;    
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;    
 }
 
 html {
     scroll-behavior: smooth;
 }
 
+body {
+    background-color: #f8f9fa; 
+    color: #333333;
+}
+
+/* ==========================================================================
+   HEADER Y NAVEGACIÓN (Diseño Corporativo)
+   ========================================================================== */
 header {
-    background-color: lightblue;
-    color: white;
-    padding: 10px 20px;
+    background-color: #0a2540; 
+    color: #ffffff;
+    padding: 15px 40px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center; 
     align-items: center;
+    position: sticky; 
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.logo-container {
+    position: absolute;
+    left: 40px; 
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
 }
 
 .logo {
-    height: 85px;
+    height: 60px; 
     width: auto;
-    object-fit: cover;
-    position: fixed;
-    top: 10px;
-    left: 20px;
-    z-index: 9999;
-    cursor: pointer;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
 }
 
 .header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
     text-align: center;
-    flex: 1;
 }
 
 .header-content h1 {
     margin: 0;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: #ffffff;
+}
+
+header::after {
+    display: none;
 }
 
 nav ul {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  margin: 10px 0 0 0;
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin: 8px 0 0 0;
+    padding: 0;
 }
 
 nav a {
-  text-decoration: none;
-  color: iceblue;
-  padding: 0.5rem 1rem;
-}
-
-main {
-    background-color: black;
-    color: white;
-    text-align: center;
-}
-
-/* ==========================================================================
-   FORMULARIO DE CONTACTO
-   ========================================================================== */
-form { 
-    max-width: 400px; 
-    margin: auto; 
-}
-
-label { 
-    display: block; 
-    margin-top: 10px; 
-}
-
-input { 
-    width: 100%; 
-    padding: 8px; 
-    margin-top: 5px; 
-}
-
-
-textarea {
-    width: 100%;
-    height: 150px; 
-    padding: 10px;
-    margin-top: 5px;
-    border-radius: 4px;     
-    resize: vertical; 
-    font-family: inherit; 
-}
-        
-button { 
-    margin-top: 20px; 
-    padding: 10px 20px; 
-    background-color: #4CAF50; 
-    color: white; 
-    border: none; 
-    cursor: pointer; 
-}
-
-button:hover { 
-    background-color: #45a049; 
-}
-
-.btn-destino {
-    width: 100%;
-    max-width: 100%;
-    height: 45px;
-    min-height: 45px;
-    padding: 0 1rem;
-    margin-top: 20px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.button-controls {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-.button-controls a {
-    margin-top: 20px; 
-    padding: 10px 20px; 
     text-decoration: none;
-    color: white;
-    background-color: #4CAF50; 
-    border: none; 
-    cursor: pointer; 
+    color: #e2e8f0;
+    transition: color 0.2s ease;
 }
 
-header h1  {
-   width: 100%;
-   text-align: center; 
+nav a h3 {
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+nav a:hover {
+    color: #38bdf8; 
 }
 
 /* ==========================================================================
-   GRID DE DESTINOS
+   CONTENIDO PRINCIPAL (MAIN Y CAROUSEL)
+   ========================================================================== */
+main {
+    background-color: transparent;
+    padding-top: 30px;
+}
+
+#demo {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto 40px auto;
+    border-radius: 12px;
+    overflow: hidden; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+}
+
+/* ==========================================================================
+   GRID DE DESTINOS (Diseño UI Moderno)
    ========================================================================== */
 .grid-container {
     display: grid;
-    background-color: white;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    background-color: transparent; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     justify-content: center;
-    gap: 10px;
-    padding: 20px;
+    gap: 30px;
+    padding: 20px 5%;
+    max-width: 1300px;
+    margin: 0 auto;
 }
 
 .item-grid {
-    display: grid;
-    background-color: lightblue;
-    border: 2px solid black;
-    color: white;
-    padding: 20px;
-    text-align: left;
-    transition: transform 0.3s ease, background-color 0.3s ease;
+    background-color: #ffffff; 
+    border: 1px solid #e2e8f0; 
+    border-radius: 12px;
+    color: #333333;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
 }
 
 .item-grid:hover {
-    box-shadow: 0 12px 22px rgba(0, 0, 0, 0.2);
-    z-index: 1;
+    transform: translateY(-8px);
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.08);
 }
 
-img {
-    width: 15rem;
-    height: 10em;
-    object-fit: cover;
-    border-radius: 8px;
+.item-grid h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #0a2540;
+    margin-bottom: 12px;
 }
 
-p {
-    color: rgb(94, 69, 69);
+.item-grid p {
+    color: #555555; 
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    flex-grow: 1; 
 }
 
-.text-light {
-    color: white !important;
-}
-
+/* Mini Mosaicos de la API */
 .galeria-destinos {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 5px;
-    margin-bottom: 15px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    margin-bottom: 18px;
 }
 
 .galeria-destinos img {
     width: 100%;
-    height: 80px;      
+    height: 90px;
     object-fit: cover;
-    border-radius: 4px;
+    border-radius: 6px;
     transition: transform 0.2s ease;
 }
 
 .galeria-destinos img:hover {
-    transform: scale(1.05); 
+    transform: scale(1.04);
+}
+
+.galeria-destinos .text-light {
+    color: #888888 !important;
+    font-size: 0.9rem;
+    grid-column: span 2;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Botón de Selección Estilizado */
+.btn-destino {
+    width: 100%;
+    height: 46px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: none;
+    background-color: #0077cc; 
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-destino:hover {
+    background-color: #005fa3;
+}
+
+/* Estado seleccionado por LocalStorage */
+.selected-destino {
+    background-color: #dc3545 !important; 
 }
 
 /* ==========================================================================
-   CAROUSEL & SECCIÓN API
+   FORMULARIO DE CONTACTO (Estilos Compartidos)
    ========================================================================== */
-#demo {
-    width: 95%;
-    max-width: 1200px;
-    margin: 0 auto 30px auto;
+form { 
+    max-width: 450px; 
+    margin: 40px auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
 }
 
-.carousel-item img,
-.carousel-img {
-    width: 100%;
-    height: 520px;
-    object-fit: cover;
+form label { 
+    display: block; 
+    margin-top: 15px; 
+    font-weight: 500;
+    color: #0a2540;
 }
 
-.carousel-control-prev,
-.carousel-control-next {
-    background-color: transparent;
+form input, form textarea { 
+    width: 100%; 
+    padding: 10px 14px; 
+    margin-top: 6px; 
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s ease;
 }
 
-.carousel-control-prev:hover,
-.carousel-control-next:hover {
-    background-color: transparent !important;
+form input:focus, form textarea:focus {
+    border-color: #0077cc;
+    box-shadow: 0 0 0 3px rgba(0, 119, 204, 0.1);
 }
 
-.logo-container {
+form textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+.button-controls {
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 25px;
 }
 
+.button-controls button, .button-controls a {
+    flex: 1;
+    text-align: center;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+}
+
+.button-controls button {
+    background-color: #10b981; 
+    color: white;
+}
+
+.button-controls button:hover { background-color: #059669; }
+
+.button-controls a {
+    background-color: #f1f5f9;
+    color: #475569;
+}
+.button-controls a:hover { background-color: #e2e8f0; }
+
+/* ==========================================================================
+   SECCIÓN DE COTIZACIÓN (API)
+   ========================================================================== */
 #cotizacion-brasil {
     width: 100%;
-    padding: 15px; 
-    background-color: #1a1a1a; 
-    border-top: 2px solid #4CAF50; 
+    padding: 18px; 
+    background-color: #0f172a; 
+    border-top: 3px solid #10b981; 
     text-align: center;
+    margin-top: 40px;
 }
 
 #cotizacion-brasil p {
-    color: #ffffff; 
+    color: #f8fafc; 
     margin: 0;
-    font-size: 1.1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
 }
 
 #cotizacion-brasil i {
-    color: #4CAF50; 
+    color: #10b981;
     margin-right: 8px;
 }
 
 /* ==========================================================================
-   FOOTER & RESPONSIVE
+   FOOTER (PIE DE PÁGINA)
    ========================================================================== */
 footer {
-    background-color: lightblue;
-    color: white;    
+    background-color: #0a2540; 
+    color: #ffffff;    
     text-align: center;
-    padding: 20px 0;
+    padding: 40px 20px;
     display: flex;
     justify-content: center;
-    gap: 60px;
+    gap: 80px;
     flex-wrap: wrap;
     align-items: flex-start;
+    border-top: 1px solid #1e293b;
 }
 
-.footer-redes,
-.footer-contacto {
+footer h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.footer-redes, .footer-contacto {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
-    flex: 0 1 320px;
-    min-width: 200px;
-}
-
-.footer-redes .social-icons,
-.footer-contacto .social-icons {
-    display: flex;
-    gap: 10px;
+    flex: 0 1 250px;
 }
 
 .social-icons ul {
@@ -286,21 +352,54 @@ footer {
     padding: 0;
     margin: 0;
     display: flex;
-    gap: 8px;
+    gap: 12px;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
 }
 
-@media (max-width: 600px) {
+footer a {
+    color: #cbd5e1; 
+    text-decoration: none;  
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.2s ease;
+}
+
+footer a i {
+    font-size: 1.1rem;
+    width: 20px;
+    text-align: center;
+}
+
+footer a:hover {
+    color: #38bdf8; 
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (MEDIA QUERIES)
+   ========================================================================== */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+        text-align: center;
+    }
+    
+    .header-content {
+        align-items: center;
+    }
+
     footer {
         flex-direction: column;
         align-items: center;
-        gap: 16px;
+        gap: 40px;
+        padding: 30px 20px;
     }
 
-    .footer-redes,
-    .footer-contacto {
-        width: 100%;
-        max-width: 480px;
+    .social-icons ul {
+        align-items: center;
     }
 }
