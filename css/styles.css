@@ -62,18 +62,34 @@ main {
     text-align: center;
 }
 
+/* ==========================================================================
+   FORMULARIO DE CONTACTO
+   ========================================================================== */
 form { 
     max-width: 400px; 
     margin: auto; 
 }
+
 label { 
     display: block; 
     margin-top: 10px; 
 }
+
 input { 
     width: 100%; 
     padding: 8px; 
     margin-top: 5px; 
+}
+
+
+textarea {
+    width: 100%;
+    height: 150px; 
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 4px;     
+    resize: vertical; 
+    font-family: inherit; 
 }
         
 button { 
@@ -108,14 +124,13 @@ button:hover {
 }
 
 .button-controls a {
-        margin-top: 20px; 
-        padding: 10px 20px; 
-        text-decoration: none;
-        color: white;
-        background-color: #4CAF50; 
-        border: none; 
-        cursor: pointer; 
-    
+    margin-top: 20px; 
+    padding: 10px 20px; 
+    text-decoration: none;
+    color: white;
+    background-color: #4CAF50; 
+    border: none; 
+    cursor: pointer; 
 }
 
 header h1  {
@@ -123,14 +138,16 @@ header h1  {
    text-align: center; 
 }
 
+/* ==========================================================================
+   GRID DE DESTINOS
+   ========================================================================== */
 .grid-container {
     display: grid;
-    background-color: rgb(189, 248, 189);
+    background-color: white;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     justify-content: center;
     gap: 10px;
     padding: 20px;
-
 }
 
 .item-grid {
@@ -159,6 +176,32 @@ p {
     color: rgb(94, 69, 69);
 }
 
+.text-light {
+    color: white !important;
+}
+
+.galeria-destinos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 5px;
+    margin-bottom: 15px;
+}
+
+.galeria-destinos img {
+    width: 100%;
+    height: 80px;      
+    object-fit: cover;
+    border-radius: 4px;
+    transition: transform 0.2s ease;
+}
+
+.galeria-destinos img:hover {
+    transform: scale(1.05); 
+}
+
+/* ==========================================================================
+   CAROUSEL & SECCIÓN API
+   ========================================================================== */
 #demo {
     width: 95%;
     max-width: 1200px;
@@ -188,6 +231,28 @@ p {
     justify-content: flex-start;
 }
 
+#cotizacion-brasil {
+    width: 100%;
+    padding: 15px; 
+    background-color: #1a1a1a; 
+    border-top: 2px solid #4CAF50; 
+    text-align: center;
+}
+
+#cotizacion-brasil p {
+    color: #ffffff; 
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+#cotizacion-brasil i {
+    color: #4CAF50; 
+    margin-right: 8px;
+}
+
+/* ==========================================================================
+   FOOTER & RESPONSIVE
+   ========================================================================== */
 footer {
     background-color: lightblue;
     color: white;    

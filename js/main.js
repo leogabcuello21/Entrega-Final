@@ -95,11 +95,85 @@ function inicializarBotonesDestinos() {
   });
 }
 
+function consultarCotizacionBRL() {
+  const contenedor = document.getElementById('cotizacion-brasil');
+  if (!contenedor) return;
+
+  fetch('https://open.er-api.com/v6/latest/USD')
+    .then(response => {
+      if (!response.ok) throw new Error('Error al consultar la API');
+      return response.json();
+    })
+    .then(data => {
+
+      const tasaBRL = data.rates.BRL;
+      
+      if (tasaBRL) {
+        contenedor.innerHTML = `
+          <p style="color: #fff; margin: 0;">
+            <i class="fa-solid fa-money-bill-trend-up"></i> 
+            <strong>Cotización del día:</strong> 1 USD = ${tasaBRL.toFixed(2)} BRL (Reales)
+          </p>
+        `;
+      }
+    })
+    .catch(error => {
+      console.error('Error con la API:', error);
+      contenedor.innerHTML = `<p style="color: #ff9800; margin: 0;">No se pudo cargar la cotización en este momento.</p>`;
+    });
+}
+
+function cargarGaleriasAPI() {
+  const galerias = document.querySelectorAll('.galeria-destinos');
+  
+  // Clave temporal de API gratuita de Pexels (puedes crear la tuya en su web en 1 minuto)
+  const API_KEY = 'bhgmIp5KkkfGXHuu8XdlFQAjyguUqY4R5t5vx0upBQZsCAkgafzZjV4Z'; 
+
+  galerias.forEach(galeria => {
+    const ciudad = galeria.dataset.keyword;
+    if (!ciudad) return;
+
+    // Buscamos fotos de la ciudad en Brasil, pidiendo exactamente 4 resultados
+    fetch(`https://api.pexels.com/v1/search?query=${ciudad} Brasil&per_page=4`, {
+      headers: {
+        Authorization: API_KEY
+      }
+    })
+    .then(response => {
+      if (!response.ok) throw new Error('Error en API de imágenes');
+      return response.json();
+    })
+    .then(data => {
+      if (data.photos && data.photos.length > 0) {
+        // Limpiamos el texto de "Cargando..."
+        galeria.innerHTML = ''; 
+        
+        // Recorremos las 4 imágenes devueltas por la API y las inyectamos en el DOM
+        data.photos.forEach(foto => {
+          const imgElement = document.createElement('img');
+          imgElement.src = foto.src.medium; // Tamaño mediano optimizado para web
+          imgElement.alt = foto.alt || `Foto de ${ciudad}`;
+          galeria.appendChild(imgElement);
+        });
+      }
+    })
+    .catch(error => {
+      console.error(`No se pudo cargar la galería de ${ciudad}:`, error);
+      galeria.innerHTML = '<p style="color: red; font-size: 12px;">Error al cargar imágenes</p>';
+    });
+  });
+}
+
 function iniciarAplicacion() {
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', inicializarBotonesDestinos);
+    document.addEventListener('DOMContentLoaded', () => {
+      inicializarBotonesDestinos();
+      consultarCotizacionBRL(); 
+    });
   } else {
     inicializarBotonesDestinos();
+    consultarCotizacionBRL();   
+    setInterval(consultarCotizacionBRL, 20000);
   }
 }
 
