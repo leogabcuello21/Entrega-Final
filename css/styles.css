@@ -1,0 +1,241 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;    
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+header {
+    background-color: lightblue;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    height: 85px;
+    width: auto;
+    object-fit: cover;
+    position: fixed;
+    top: 10px;
+    left: 20px;
+    z-index: 9999;
+    cursor: pointer;
+}
+
+.header-content {
+    text-align: center;
+    flex: 1;
+}
+
+.header-content h1 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin: 10px 0 0 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: iceblue;
+  padding: 0.5rem 1rem;
+}
+
+main {
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+form { 
+    max-width: 400px; 
+    margin: auto; 
+}
+label { 
+    display: block; 
+    margin-top: 10px; 
+}
+input { 
+    width: 100%; 
+    padding: 8px; 
+    margin-top: 5px; 
+}
+        
+button { 
+    margin-top: 20px; 
+    padding: 10px 20px; 
+    background-color: #4CAF50; 
+    color: white; 
+    border: none; 
+    cursor: pointer; 
+}
+
+button:hover { 
+    background-color: #45a049; 
+}
+
+.btn-destino {
+    width: 100%;
+    max-width: 100%;
+    height: 45px;
+    min-height: 45px;
+    padding: 0 1rem;
+    margin-top: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.button-controls a {
+        margin-top: 20px; 
+        padding: 10px 20px; 
+        text-decoration: none;
+        color: white;
+        background-color: #4CAF50; 
+        border: none; 
+        cursor: pointer; 
+    
+}
+
+header h1  {
+   width: 100%;
+   text-align: center; 
+}
+
+.grid-container {
+    display: grid;
+    background-color: rgb(189, 248, 189);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+
+}
+
+.item-grid {
+    display: grid;
+    background-color: lightblue;
+    border: 2px solid black;
+    color: white;
+    padding: 20px;
+    text-align: left;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.item-grid:hover {
+    box-shadow: 0 12px 22px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+img {
+    width: 15rem;
+    height: 10em;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+p {
+    color: rgb(94, 69, 69);
+}
+
+#demo {
+    width: 95%;
+    max-width: 1200px;
+    margin: 0 auto 30px auto;
+}
+
+.carousel-item img,
+.carousel-img {
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    background-color: transparent;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    background-color: transparent !important;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+footer {
+    background-color: lightblue;
+    color: white;    
+    text-align: center;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.footer-redes,
+.footer-contacto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    flex: 0 1 320px;
+    min-width: 200px;
+}
+
+.footer-redes .social-icons,
+.footer-contacto .social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.social-icons ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (max-width: 600px) {
+    footer {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .footer-redes,
+    .footer-contacto {
+        width: 100%;
+        max-width: 480px;
+    }
+}
